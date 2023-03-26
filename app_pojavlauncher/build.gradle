@@ -41,11 +41,8 @@ android {
     dexOptions {
         javaMaxHeapSize "4g"
     }
-	
-    lintOptions {
-        abortOnError false
-    }
-	
+
+
     signingConfigs {
         customDebug {
             storeFile file("debug.keystore")
@@ -94,8 +91,8 @@ android {
 	    // defaultConfig already set
             // multiDexEnabled = true
            // debuggable = true
-            resValue 'string', 'storageProviderAuthorities', 'net.kdt.pojavlaunch.scoped.gamefolder'
-            resValue 'string', 'application_package', 'net.kdt.pojavlaunch'
+            resValue 'string', 'storageProviderAuthorities', 'net.kdt.pojavlaunch.community.scoped.gamefolder'
+            resValue 'string', 'application_package', 'net.kdt.pojavlaunch.community'
         }
         gplay {
             initWith release
@@ -110,16 +107,19 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     bundle {
         language {
             enableSplit = false
         }
     }
+    lint {
+        abortOnError false
+    }
+    namespace 'net.kdt.pojavlaunch'
 
-    buildToolsVersion '30.0.2'
 }
 
 dependencies {
