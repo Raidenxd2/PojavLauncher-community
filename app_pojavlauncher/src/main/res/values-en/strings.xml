@@ -11,7 +11,7 @@
     <string name="login_online_password_hint">Password</string>
     <string name="login_online_check_keeplogin">Keep me logged in</string>
     <string name="login_online_login_label">Login</string>
-    <string name="login_error_invalid_username">Invalid username. Your username must be 3-16 characters long and should only contain the following characters: A-Z, a-z, 0-9 and underscore.</string>
+    <string name="login_error_invalid_username">Invalid username. Your username must be 3–16 characters long and should only contain the following characters: A–Z, a–z, 0–9 and underscores.</string>
     <string name="login_error_exist_username">This username already exists</string>
     <string name="login_microsoft">Microsoft login</string>
     <string name="login_select_account">Select account</string>
@@ -24,7 +24,7 @@
     <string name="alerttitle_install_jre">Install Java Runtime %s (.tar.xz)</string>
     <string name="alerttitle_installmod">Choose a mod installer (.jar)</string>
     <!-- Error messages -->
-    <string name="error_fatal">PojavLauncher has unexpectedly crashed</string>
+    <string name="error_fatal">PojavLauncher has crashed!</string>
     <string name="error_no_version">No version!</string>
     <string name="error_show_more">Show more</string>
     <string name="error_show_less">Show less</string>
@@ -47,9 +47,12 @@
     <string name="mcl_launch_downloading">Downloading %s</string>
     <string name="mcl_launch_downloading_progress">"Downloading %s (%.2f MB / %.2f MB)"</string>
     <string name="mcl_launch_download_assets">Preparing to download resources</string>
+
+    <!-- The devs removed this... Now PojavLauncher isn't legal! -->
     <string name="mcl_launch_error_localmode">Minecraft can\'t be legally installed when logged in with a local account. Please switch to an online account to continue.</string>
+
     <string name="mcl_options">Options</string>
-    <string name="mcl_option_modinstall">Launch a mod installer (Forge, LabyMod, Fabric, etc...)</string>
+    <string name="mcl_option_modinstall">Launch a mod installer (Forge, LabyMod, Fabric, etc…)</string>
     <string name="mcl_option_modinstallwitharg">Launch a mod installer (with custom arguments)</string>
     <string name="mcl_option_customcontrol">Custom controls</string>
     <string name="mcl_option_settings">Settings</string>
@@ -65,7 +68,7 @@
     <string name="mcl_setting_title_ignore_notch">Ignore notch</string>
     <string name="mcl_setting_subtitle_ignore_notch">Ignores the notch and extends the screen under it.\nGives you a more immersive experience.</string>
     <string name="mcl_setting_title_resolution_scaler">Resolution Scaler</string>
-    <string name="mcl_setting_subtitle_resolution_scaler">Allows you to decrease the game resolution. 100% is full resolution</string>
+    <string name="mcl_setting_subtitle_resolution_scaler">Allows you to increase/decrease the game resolution. 100% is full resolution 50% is half resoultion.</string>
     <string name="mcl_setting_title_longpresstrigger">Trigger press duration</string>
     <string name="mcl_setting_subtitle_longpresstrigger">Trigger press duration for destroying blocks and dropping items.</string>
     <string name="mcl_setting_title_backtorightmouse">Treat back button as right mouse</string>
@@ -76,8 +79,8 @@
     <string name="mcl_setting_subtitle_buttonscale">Upscale them if buttons are too small.</string>
     <string name="mcl_setting_title_mousescale">Mouse scaling</string>
     <string name="mcl_setting_subtitle_mousescale">Change size of virtual mouse.</string>
-    <string name="mcl_setting_title_javaargs">JVM Launch arguments</string>
-    <string name="mcl_setting_subtitle_javaargs">Be careful, this can make the game crash if modified without any prior knowledge.</string>
+    <string name="mcl_setting_title_javaargs">JVM arguments</string>
+    <string name="mcl_setting_subtitle_javaargs">Change the JVM arguments that the game uses.</string>
     <string name="mcl_setting_category_general">General settings</string>
     <string name="mcl_setting_category_scaling">Scaling settings</string>
     <string name="mcl_setting_category_renderer">Renderer</string>
@@ -205,7 +208,7 @@
     <string name="customctrl_passthru">Mouse pass</string>
     <string name="customctrl_swipeable">Swipeable</string>
     <string name="customctrl_rounded">Rounded</string>
-    <string name="memory_warning_msg">The current amount of free RAM (%d) is lower than allocated RAM (%d), which may lead to crashes. Change the allocation if the game crashes.</string>
+    <string name="memory_warning_msg">The current amount of free RAM (%d) is lower than allocated RAM (%d), which may lead to crashes. Lower the allocation if the game crashes.</string>
     <string name="mcl_memory_allocation">Maximum memory allocation</string>
     <string name="mcl_memory_allocation_subtitle">Controls the maximum amount of memory Minecraft can use.</string>
     <string name="multirt_runtime_corrupt">Corrupted Java Runtime</string>
@@ -215,7 +218,7 @@
     <string name="multirt_config_add_subtitle">Import new Java VM</string>
     <string name="multirt_title">Runtime Manager</string>
     <string name="multirt_subtitle">Manage installed Java VMs</string>
-    <string name="multirt_progress_caching">Caching...</string>
+    <string name="multirt_progress_caching">Caching…</string>
     <string name="multirt_config_setdefault">Set default</string>
     <string name="multirt_config_setdefault_already">Default</string>
     <string name="multirt_config_removeerror_last">You must have at least one Java Runtime installed</string>
@@ -248,7 +251,7 @@
     <string name="preference_experimental_description">Enable this at your own risk! We won\'t be able to help you if you experience issues.</string>
     <string name="preference_sustained_performance_title">Enable sustained performance mode</string>
     <string name="preference_sustained_performance_description">Limit thermal throttling by limiting peak performance</string>
-    <string name="preference_force_vsync_description">Limit thermal throttling by limiting peak performance</string>
+    <string name="preference_force_vsync_description">Limits FPS to your devices refresh rate but gives you a smoother experience</string>
     <string name="preference_force_english_title">Force language to English</string>
     <string name="preference_force_english_description">Allows you to see original strings, as intended by developers. Requires a restart</string>
     <string name="preference_edit_controls_title">Edit custom controls</string>
