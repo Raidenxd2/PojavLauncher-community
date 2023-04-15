@@ -494,21 +494,21 @@ public class JREUtils {
                 args = args.replace(parsedSubString, "");
 
                 // Check if two args aren't bundled together by mistake
-                // Removed since people will need the spacing (check your jvm arguments for mistakes!)
-//                if(parsedSubString.indexOf('=') == parsedSubString.lastIndexOf('=')) {
-//                    int arraySize = parsedArguments.size();
-//                    if(arraySize > 0){
-//                        String lastString = parsedArguments.get(arraySize - 1);
-//                        // Looking for list elements
-//                        if(lastString.charAt(lastString.length() - 1) == ',' ||
-//                                parsedSubString.contains(",")){
-//                            parsedArguments.set(arraySize - 1, lastString + parsedSubString);
-//                            continue;
-//                        }
-//                    }
-//                    parsedArguments.add(parsedSubString);
-//                }
-//                else Log.w("JAVA ARGS PARSER", "Removed improper arguments: " + parsedSubString);
+
+                if(parsedSubString.indexOf('=') == parsedSubString.lastIndexOf('=')) {
+                    int arraySize = parsedArguments.size();
+                    if(arraySize > 0){
+                        String lastString = parsedArguments.get(arraySize - 1);
+                        // Looking for list elements
+                        if(lastString.charAt(lastString.length() - 1) == ',' ||
+                                parsedSubString.contains(",")){
+                            parsedArguments.set(arraySize - 1, lastString + parsedSubString);
+                            continue;
+                        }
+                    }
+                    parsedArguments.add(parsedSubString);
+                }
+                else Log.w("JAVA ARGS PARSER", "Removed improper arguments: " + parsedSubString);
             }
         }
         return parsedArguments;
