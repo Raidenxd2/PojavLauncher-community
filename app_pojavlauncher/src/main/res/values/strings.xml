@@ -361,7 +361,7 @@
     <!-- Community Edition (Strings)-->
     <string name="enable_forgesplash_title">Enable Forge splash screen</string>
     <string name="enable_forgesplash_description">Enables the Forge splash screen. WARNING: Can cause issues.</string>
-    <string name="mcl_setting_renderer_gl4es115">GL4ES 1.1.5 - (all versions, fast)</string>
+    <string name="mcl_setting_renderer_gl4es115">Holy GL4ES 1.1.5 - (all versions, fast, default)</string>
     <string name="mcl_minimum_memory_allocation">Minimum memory allocation</string>
     <string name="mcl_minimum_memory_allocation_subtitle">Controls the minimum amount of memory Minecraft can use.</string>
     <string name="mcl_jvm_arguments_purger_title">JVM arguments purger</string>
