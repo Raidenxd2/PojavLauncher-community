@@ -1,20 +1,20 @@
 package net.kdt.pojavlaunch.customcontrols;
 
-import static net.kdt.pojavlaunch.customcontrols.ControlDrawerData.Orientation.DOWN;
-import static net.kdt.pojavlaunch.customcontrols.ControlDrawerData.Orientation.FREE;
-import static net.kdt.pojavlaunch.customcontrols.ControlDrawerData.Orientation.LEFT;
-import static net.kdt.pojavlaunch.customcontrols.ControlDrawerData.Orientation.RIGHT;
-import static net.kdt.pojavlaunch.customcontrols.ControlDrawerData.Orientation.UP;
-
 import net.kdt.pojavlaunch.Tools;
 
 import java.util.ArrayList;
 
+import static net.kdt.pojavlaunch.customcontrols.ControlDrawerData.Orientation.DOWN;
+import static net.kdt.pojavlaunch.customcontrols.ControlDrawerData.Orientation.LEFT;
+import static net.kdt.pojavlaunch.customcontrols.ControlDrawerData.Orientation.RIGHT;
+import static net.kdt.pojavlaunch.customcontrols.ControlDrawerData.Orientation.UP;
+import static net.kdt.pojavlaunch.customcontrols.ControlDrawerData.Orientation.FREE;
+
 @androidx.annotation.Keep
 public class ControlDrawerData {
 
-    public ArrayList<ControlData> buttonProperties;
-    public ControlData properties;
+    public final ArrayList<ControlData> buttonProperties;
+    public final ControlData properties;
     public Orientation orientation;
 
     @androidx.annotation.Keep
@@ -57,7 +57,7 @@ public class ControlDrawerData {
     }
 
     public ControlDrawerData(ArrayList<ControlData> buttonProperties){
-        this(buttonProperties, new ControlData("Drawer", new int[] {}, Tools.currentDisplayMetrics.widthPixels/2, Tools.currentDisplayMetrics.heightPixels/2));
+        this(buttonProperties, new ControlData("Drawer", new int[] {}, Tools.currentDisplayMetrics.widthPixels/2f, Tools.currentDisplayMetrics.heightPixels/2f));
     }
 
     public ControlDrawerData(ArrayList<ControlData> buttonProperties, ControlData properties){
