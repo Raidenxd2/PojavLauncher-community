@@ -229,8 +229,8 @@ public class JREUtils {
 
         envMap.put("MESA_GLSL_CACHE_DIR", activity.getCacheDir().getAbsolutePath());
         if (LOCAL_RENDERER != null) {
-            envMap.put("MESA_GL_VERSION_OVERRIDE", LOCAL_RENDERER.equals("opengles3_virgl")?"4.3":"4.6");
-            envMap.put("MESA_GLSL_VERSION_OVERRIDE", LOCAL_RENDERER.equals("opengles3_virgl")?"430":"460");
+            envMap.put("MESA_GL_VERSION_OVERRIDE", LOCAL_RENDERER.equals("opengles3_virgl")?"4.3":"3.2");
+            envMap.put("MESA_GLSL_VERSION_OVERRIDE", LOCAL_RENDERER.equals("opengles3_virgl")?"430":"320");
         }
         envMap.put("force_glsl_extensions_warn", "true");
         envMap.put("allow_higher_compat_version", "true");
@@ -241,9 +241,9 @@ public class JREUtils {
         envMap.put("LD_LIBRARY_PATH", LD_LIBRARY_PATH);
         envMap.put("PATH", Tools.DIR_HOME_JRE + "/bin:" + Os.getenv("PATH"));
 
-        envMap.put("REGAL_GL_VENDOR", "Android");
+        envMap.put("REGAL_GL_VENDOR", "Linux");
         envMap.put("REGAL_GL_RENDERER", "Regal");
-        envMap.put("REGAL_GL_VERSION", "4.5");
+        envMap.put("REGAL_GL_VERSION", "3.2");
         if(LOCAL_RENDERER != null) {
             envMap.put("POJAV_RENDERER", LOCAL_RENDERER);
             if(LOCAL_RENDERER.equals("opengles3_desktopgl_angle_vulkan")) {
@@ -271,9 +271,9 @@ public class JREUtils {
 
             if (glesMajor < 3) {
                 //fallback to 2 since it's the minimum for the entire app
-                envMap.put("LIBGL_ES","2");
+                envMap.put("LIBGL_ES","3");
             } else if (LOCAL_RENDERER.startsWith("opengles")) {
-                envMap.put("LIBGL_ES", LOCAL_RENDERER.replace("opengles", "").replace("_5", ""));
+                envMap.put("LIBGL_ES", LOCAL_RENDERER.replace("opengles", "").replace("_vgpu", ""));
             } else {
                 // TODO if can: other backends such as Vulkan.
                 // Sure, they should provide GLES 3 support.
@@ -522,26 +522,24 @@ public class JREUtils {
         if(LOCAL_RENDERER == null) return null;
         String renderLibrary;
         switch (LOCAL_RENDERER){
-            case "opengles2":
-            case "opengles2_5":
-            case "opengles3":
-                renderLibrary = "libgl4es_114.so"; break;
-            case "opengles115":
-                renderLibrary = "libgl4es_115.so"; break;
-            case "opengles3_virgl":
+            case "opengles2": renderLibrary = "libgl4es_114.so"; break;
+            case "opengles3_vgpu": renderLibrary = "libvgpu.so"; break;
+            case "opengles3_vgpu140": renderLibrary = "libvgpu_beta.so"; break;
+            case "opengles2_gl4es115": renderLibrary = "libgl4es_115.so"; break;
+            case "opengles3_virgl": renderLibrary = "libOSMesa.so"; break;
             case "vulkan_zink": renderLibrary = "libOSMesa_8.so"; break;
             case "opengles3_desktopgl_angle_vulkan" : renderLibrary = "libtinywrapper.so"; break;
             default:
                 Log.w("RENDER_LIBRARY", "No renderer selected, defaulting to opengles2");
-                renderLibrary = "libgl4es_114.so";
+                renderLibrary = "libgl4es_115.so";
                 break;
         }
 
         if (!dlopen(renderLibrary) && !dlopen(findInLdLibPath(renderLibrary))) {
-            Log.e("RENDER_LIBRARY","Failed to load renderer " + renderLibrary + ". Falling back to GL4ES 1.1.4");
-            LOCAL_RENDERER = "opengles2";
-            renderLibrary = "libgl4es_114.so";
-            dlopen(NATIVE_LIB_DIR + "/libgl4es_114.so");
+            Log.e("RENDER_LIBRARY","Failed to load renderer " + renderLibrary + ". Falling back to GL4ES 1.1.5");
+            LOCAL_RENDERER = "opengles2_gl4es115";
+            renderLibrary = "libgl4es_115.so";
+            dlopen(NATIVE_LIB_DIR + "/libgl4es_115.so");
         }
         return renderLibrary;
     }
